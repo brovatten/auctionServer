@@ -1,0 +1,16 @@
+com\example\server\api\PostBidTemplate.class
+com\example\server\model\Bid.class
+com\example\server\model\Person.class
+com\example\server\DemoApplication.class
+com\example\server\service\RaftService.class
+com\example\server\dao\BidRepository.class
+com\example\server\dao\AuctionRepository.class
+com\example\server\api\PostAuctionTemplate.class
+com\example\server\service\BidService.class
+com\example\server\service\AuctionService.class
+com\example\server\model\Auction.class
+com\example\server\service\RaftService$1.class
+com\example\server\dao\AuctionTable.class
+com\example\server\api\BidController.class
+com\example\server\dao\BidTable.class
+com\example\server\dao\DBService.class
