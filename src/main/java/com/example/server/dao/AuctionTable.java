@@ -2,30 +2,34 @@
 package com.example.server.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AuctionTable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int auctionId;
+    private Integer auctionId;
 
-    private String highestBidId;
+    private Integer highestBidId;
 
-    private int auctioneer;
+    private Integer auctioneer;
 
 
-    public AuctionTable(@JsonProperty("auctioneer") int auctioneer) {
+    public AuctionTable(@NotNull @JsonProperty("auctionId") int auctionId,@NotNull @JsonProperty("auctioneer") int auctioneer) {
         this.auctioneer = auctioneer;
+        this.auctionId = auctionId;
+        this.highestBidId = -1;
     }
 
     public AuctionTable() {
 
+    }
+
+    public void setAuctioneer(int auctioneer) {
+        this.auctioneer = auctioneer;
     }
 
     public int getAuctioneer() {
@@ -40,11 +44,11 @@ public class AuctionTable {
         this.auctionId = auctionId;
     }
 
-    public String getHighestBidId() {
+    public int getHighestBidId() {
         return highestBidId;
     }
 
-    public void setHighestBidId(String highestBidId) {
+    public void setHighestBidId(int highestBidId) {
         this.highestBidId = highestBidId;
     }
 }

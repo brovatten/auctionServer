@@ -2,7 +2,9 @@ package com.example.server.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Bid {
+import java.io.Serializable;
+
+public class Bid implements Serializable {
 
     private String name;
     private int amount;

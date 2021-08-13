@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  docker-mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=ThePassword
+      - MYSQL_DATABASE=db_example
+      - MYSQL_USER=springuser
+      - MYSQL_PASSWORD=ThePassword
+    ports:
+      - 3307:3306
+
+  app:
+    image: server8080
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/db_example?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false&password=ThePassword&user=springuser
+#      SERVER_PORT : 8081
+    depends_on:
+      - docker-mysql
+
+  app2:
+    image: server8081
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/db_example?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false&password=ThePassword&user=springuser
+    depends_on:
+      - docker-mysql
