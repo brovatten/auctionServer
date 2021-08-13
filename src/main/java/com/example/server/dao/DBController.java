@@ -1,3 +1,4 @@
+/*
 
 package com.example.server.dao;
 import com.example.server.dao.AuctionTable;
@@ -49,3 +50,4 @@ public class DBController {
         return bidRepository.findAll();
     }
 }
+*/

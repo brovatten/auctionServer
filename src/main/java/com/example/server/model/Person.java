@@ -1,6 +1,8 @@
 package com.example.server.model;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 
     private long id;
     private String name;
